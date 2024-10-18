@@ -1,0 +1,33 @@
+Fichier de schéma de Thermoptim;schema;version=2.51		
+lang=fr	code=Univ	November 16, 2022 5:53:10 PM CET
+PanelWidth=2000	PanelHeight=1000
+Nombre_de_ Figs	6
+Compression	Comp	n°=1	x=208	y=160	newsubst=false	nbPorts=2	flipped=false
+inlet	source=false	multiPort=false	HXport=false	1	air	1
+outlet	source=true	multiPort=false	HXport=false	2	air	1
+Exchange	chaude	n°=2	x=360	y=176	newsubst=false	nbPorts=3	flipped=false
+inlet	source=false	multiPort=false	HXport=false	2	air	1
+outlet	source=true	multiPort=false	HXport=false	3	air	1
+hX	source=true	multiPort=false	HXport=true	hXname=	red=0
+Expansion	turbine	n°=3	x=512	y=192	newsubst=false	nbPorts=2	flipped=false
+inlet	source=false	multiPort=false	HXport=false	3	air	1
+outlet	source=true	multiPort=false	HXport=false	4	air	1
+Exchange	froide	n°=4	x=344	y=296	newsubst=false	nbPorts=3	flipped=true
+inlet	source=false	multiPort=false	HXport=false	4	air	1
+outlet	source=true	multiPort=false	HXport=false	1	air	1
+hX	source=true	multiPort=false	HXport=true	hXname=	red=0
+Utility	source chaude	n°=5	x=464	y=88	newsubst=false	nbPorts=3	flipped=false
+inlet	source=false	multiPort=false	HXport=false	null	null	1
+outlet	source=true	multiPort=false	HXport=false	null	null	1
+hX	source=true	multiPort=false	HXport=true	hXname=	red=0
+Utility	source froide	n°=6	x=312	y=392	newsubst=false	nbPorts=3	flipped=false
+inlet	source=false	multiPort=false	HXport=false	null	null	1
+outlet	source=true	multiPort=false	HXport=false	null	null	1
+hX	source=true	multiPort=false	HXport=true	hXname=	red=0
+Nombre_de_ Edges	6
+Compression	Comp	outlet	Exchange	chaude	inlet
+Exchange	chaude	outlet	Expansion	turbine	inlet
+Expansion	turbine	outlet	Exchange	froide	inlet
+Exchange	froide	outlet	Compression	Comp	inlet
+Utility	source chaude	hX	Exchange	chaude	hX
+Utility	source froide	hX	Exchange	froide	hX
