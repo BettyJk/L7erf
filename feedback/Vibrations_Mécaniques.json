@@ -1,0 +1,131 @@
+{
+    "Chapitre": "Vibrations des systèmes mécaniques à un degré de liberté",
+    "Introduction": {
+        "Modélisation": {
+            "Description": "Étudier les vibrations des systèmes mécaniques simplifiés.",
+            "Types": [
+                {
+                    "Approche": "Discrète",
+                    "Description": "Simplification des systèmes en éléments distincts comme masse et ressort.",
+                    "Avantages": "Calcul rapide, facilité de mise en œuvre.",
+                    "Inconvénients": "Interprétation physique limitée."
+                },
+                {
+                    "Approche": "Continue",
+                    "Description": "Modèle détaillé correspondant à la géométrie réelle.",
+                    "Avantages": "Représentation réaliste des structures complexes.",
+                    "Inconvénients": "Calculs lourds nécessitant validation."
+                }
+            ],
+            "ElémentsDuSystème": [
+                {
+                    "Nom": "Masse",
+                    "Propriétés": "Importante, indéformable"
+                },
+                {
+                    "Nom": "Ressort",
+                    "Propriétés": "Force élastique proportionnelle au déplacement"
+                },
+                {
+                    "Nom": "Amortisseur",
+                    "Propriétés": "Force de freinage proportionnelle à la vitesse"
+                }
+            ]
+        }
+    },
+    "VibrationsLibresNonAmorties": {
+        "Définition": "Oscillations sans amortissement, influencées par la rigidité et l'inertie.",
+        "MouvementHarmonique": {
+            "Equation": "x'' + ω_0^2 * x = 0",
+            "Solution": {
+                "Forme": "x(t) = A * cos(ω_0 * t) + B * sin(ω_0 * t)",
+                "Amplitude": "X, amplitude maximale du déplacement",
+                "Phase": "ϕ, déphasage initial"
+            }
+        },
+        "FréquenceEtPériode": {
+            "PériodeNaturelle": "T = 2π / ω_0",
+            "FréquencePropre": "f = 1 / T, nombre de cycles par seconde"
+        }
+    },
+    "VibrationsLibresAmorties": {
+        "TypesDAmortissement": [
+            {
+                "Type": "Sous-amorti",
+                "Description": "Oscillations avec amplitude décroissante.",
+                "Equation": "x'' + 2ζω_0x' + ω_0^2 * x = 0",
+                "Solution": "x(t) = Xe^(-ζω_0t) * cos(ω_d * t + ϕ)"
+            },
+            {
+                "Type": "Critiquement amorti",
+                "Description": "Retour rapide à l'équilibre sans oscillations.",
+                "Equation": "x(t) = (A + Bt)e^(-ω_0t)"
+            },
+            {
+                "Type": "Sur-amorti",
+                "Description": "Retour lent à l'équilibre sans oscillation.",
+                "Equation": "x(t) = Ae^(r1 * t) + Be^(r2 * t)"
+            }
+        ],
+        "FacteurDAmortissement": {
+            "Definition": "ζ = c / (2 * √(km))",
+            "ValeursTypiques": {
+                "Sous-amorti": "0 < ζ < 1",
+                "Critique": "ζ = 1",
+                "Sur-amorti": "ζ > 1"
+            }
+        }
+    },
+    "VibrationsForcees": {
+        "TypesDExcitations": [
+            {
+                "Type": "Périodique",
+                "Exemples": [
+                    "Machines tournantes",
+                    "Hélices"
+                ]
+            },
+            {
+                "Type": "NonPériodique",
+                "Exemples": [
+                    "Explosions",
+                    "Séismes"
+                ]
+            }
+        ],
+        "Résonance": {
+            "Définition": "Réponse amplifiée lorsque la fréquence d'excitation est proche de la fréquence naturelle.",
+            "FacteurDAmplification": {
+                "Formule": "A(β) = 1 / √((1 - β^2)^2 + (2ζβ)^2)",
+                "Explication": "Variation en fonction de la fréquence de l'excitation et du facteur d'amortissement."
+            }
+        }
+    },
+    "AnalyseMathématique": {
+        "EquationsDeMouvement": {
+            "SansAmortissement": "mx'' + kx = F(t)",
+            "AvecAmortissement": "mx'' + cx' + kx = F(t)"
+        },
+        "SolutionParFourier": {
+            "Méthode": "Utilise une série de Fourier pour les réponses périodiques.",
+            "Exemple": "Réponse d'un oscillateur à une excitation en créneau."
+        }
+    },
+    "Références": [
+        {
+            "Titre": "Vibration de systèmes continus",
+            "Auteur": "L. Champany",
+            "Année": 2005
+        },
+        {
+            "Titre": "Vibrations et Acoustique",
+            "Auteur": "Jean-Claude Pascal",
+            "Année": 2005
+        },
+        {
+            "Titre": "Vibration Problems in Engineering",
+            "Auteur": "S. Timoshenko",
+            "Année": 1928
+        }
+    ]
+}

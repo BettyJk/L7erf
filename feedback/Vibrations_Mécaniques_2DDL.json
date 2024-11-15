@@ -1,0 +1,113 @@
+{
+    "Chapitre": "Vibrations des systèmes mécaniques à deux degrés de liberté",
+    "Introduction": {
+        "Définition": "Un système mécanique à deux degrés de liberté nécessite deux paramètres indépendants pour décrire son mouvement. Les systèmes mécaniques à 2 DDL incluent des masses et des ressorts couplés ou des structures à plusieurs points d'attache.",
+        "ExemplesDeSystèmes": [
+            {
+                "Nom": "Système à deux masses couplées",
+                "Description": "Deux masses connectées par des ressorts avec des forces appliquées."
+            },
+            {
+                "Nom": "Système de volant et ressort",
+                "Description": "Masse connectée à un ressort produisant une force de rappel proportionnelle au déplacement."
+            }
+        ]
+    },
+    "SystèmeConservatifNonAmorti": {
+        "Équations": [
+            "m1*x1'' = -k1*x1 + k2*(x2 - x1)",
+            "m2*x2'' = -k2*(x2 - x1)"
+        ],
+        "FormeMatricielle": {
+            "MatriceDesMasses": "[M]",
+            "MatriceDeRigidité": "[K]",
+            "VecteurDesDéplacements": "[x]"
+        },
+        "Solution": {
+            "Forme": "x(t) = A * cos(ω1 * t + φ1) + B * cos(ω2 * t + φ2)",
+            "ModesPropres": [
+                {
+                    "Mode": "Premier Mode Propre",
+                    "Description": "Fréquence propre ω1 influencée par m1, k1, et k2"
+                },
+                {
+                    "Mode": "Deuxième Mode Propre",
+                    "Description": "Fréquence propre ω2 différente de ω1"
+                }
+            ]
+        }
+    },
+    "SystèmeExcitéNonAmorti": {
+        "ForcesExternes": "Les forces appliquées aux masses provoquent une excitation du système avec une réponse dynamique influencée par les fréquences propres.",
+        "FormeDeLaSolution": "x(t) = X1 * cos(ω * t + φ1) + X2 * cos(ω * t + φ2)",
+        "Résonance": "Les amplitudes augmentent significativement si l'excitation est proche d'une des fréquences naturelles."
+    },
+    "SystèmeAmorti": {
+        "AmortissementVisqueux": {
+            "Équation": "m*x'' + c*x' + k*x = 0",
+            "TypesDeRéponses": [
+                {
+                    "Type": "Sous-Amorti",
+                    "Description": "Oscillations amorties avec des amplitudes décroissantes."
+                },
+                {
+                    "Type": "Critiquement Amorti",
+                    "Description": "Retour à l'équilibre le plus rapide sans oscillations."
+                },
+                {
+                    "Type": "Sur-Amorti",
+                    "Description": "Retour lent à l'équilibre sans oscillation."
+                }
+            ]
+        },
+        "FormeDeSolution": "Solution oscillante ou non-oscillante en fonction du niveau d'amortissement."
+    },
+    "SystèmeForcéAvecAmortissementVisqueux": {
+        "ForcesHarmoniques": "Excitations périodiques appliquées au système avec amortissement.",
+        "Solution": "La solution permanente est obtenue en supposant des forces harmoniques avec des fréquences proches des modes propres.",
+        "MatriceDImpédance": {
+            "Description": "Matrice représentant la réponse dynamique du système sous excitation.",
+            "Éléments": [
+                {
+                    "Nom": "Z11",
+                    "Description": "Impédance pour la première masse"
+                },
+                {
+                    "Nom": "Z22",
+                    "Description": "Impédance pour la seconde masse"
+                }
+            ]
+        }
+    },
+    "ApplicationsIndustrielles": [
+        {
+            "Nom": "Absorbeur de vibrations",
+            "Description": "Dispositif ajouté aux structures pour réduire les vibrations en atteignant une résonance contrôlée pour absorber l'énergie vibratoire.",
+            "Critères": [
+                "Choix de la fréquence propre de l'absorbeur",
+                "Positionnement optimal dans la structure"
+            ]
+        },
+        {
+            "Nom": "Amortisseur pour ponts et bâtiments",
+            "Description": "Amortisseurs utilisés dans les infrastructures pour limiter les vibrations dues au vent ou au trafic."
+        }
+    ],
+    "Références": [
+        {
+            "Titre": "Vibration de systèmes continus",
+            "Auteur": "L. Champany",
+            "Année": 2005
+        },
+        {
+            "Titre": "Vibrations et Acoustique",
+            "Auteur": "Jean-Claude Pascal",
+            "Année": 2005
+        },
+        {
+            "Titre": "Mechanical Vibration",
+            "Auteur": "J.M. Krodiewski",
+            "Année": 2006
+        }
+    ]
+}

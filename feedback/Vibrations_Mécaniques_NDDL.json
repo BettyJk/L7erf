@@ -1,0 +1,96 @@
+{
+    "Chapitre": "Vibrations des systèmes mécaniques à N degrés de liberté",
+    "Introduction": {
+        "Définition": "Les systèmes mécaniques à N degrés de liberté (NDDL) nécessitent N paramètres indépendants pour décrire leurs mouvements. Ils sont composés de masses, ressorts et amortisseurs distribués, permettant des oscillations plus complexes que les systèmes à 1 ou 2 DDL.",
+        "ExemplesDeSystèmes": [
+            {
+                "Nom": "Système multi-masses",
+                "Description": "Ensemble de masses reliées par des ressorts et amortisseurs, formant une chaîne ou une structure de treillis."
+            },
+            {
+                "Nom": "Structures continues",
+                "Description": "Systèmes dont les degrés de liberté sont répartis dans un continuum, comme les poutres et plaques."
+            }
+        ]
+    },
+    "ÉquationsDuMouvement": {
+        "FormeMatricielle": {
+            "MatriceDesMasses": "[M]",
+            "MatriceDesRaideurs": "[K]",
+            "VecteurDesDéplacements": "[x]",
+            "ÉquationGénérale": "M*x'' + C*x' + K*x = F(t)"
+        },
+        "SolutionsGénérales": {
+            "Méthode": "Résolution de systèmes d'équations différentielles couplées, souvent par décomposition modale pour obtenir les fréquences et modes propres.",
+            "ModesPropres": {
+                "Définition": "Combinaisons des positions pour lesquelles les oscillations du système sont possibles à des fréquences propres spécifiques.",
+                "FormeDeSolution": "x(t) = Σ Ai*cos(ωi*t + φi) pour i allant de 1 à N"
+            }
+        }
+    },
+    "RésonanceDansLesSystèmesÀNDDL": {
+        "Définition": "Phénomène où l’amplitude des vibrations augmente fortement lorsque la fréquence d'excitation est proche de l’une des fréquences propres du système.",
+        "FacteurDAmplificationDynamique": {
+            "Formule": "A(ω) = 1 / √((1 - (ω/ω_n)^2)^2 + (2ζ * ω/ω_n)^2)",
+            "Explication": "Évalue comment la fréquence de l'excitation et le facteur d'amortissement influencent l'amplitude."
+        }
+    },
+    "MéthodesDeRésolution": {
+        "DécompositionModale": {
+            "Description": "Sépare le problème en N sous-systèmes indépendants en utilisant les vecteurs propres et les valeurs propres de la matrice de rigidité et de masse.",
+            "ÉtapesPrincipales": [
+                "Calcul des vecteurs et valeurs propres de [K] et [M].",
+                "Transformation du système en un ensemble d’équations découplées.",
+                "Résolution des équations découplées pour obtenir les réponses en fonction du temps."
+            ]
+        },
+        "MéthodeDesÉlémentsFinis": {
+            "Description": "Technique utilisée pour modéliser les systèmes continus comme des systèmes à NDDL en les divisant en éléments plus petits, chacun avec un nombre limité de DDL.",
+            "Applications": [
+                "Analyse des vibrations dans les ponts, les bâtiments, et les machines industrielles."
+            ]
+        }
+    },
+    "SystèmesAvecAmortissement": {
+        "TypesDAmortissement": [
+            {
+                "Type": "AmortissementVisqueux",
+                "Description": "Force proportionnelle à la vitesse relative, modélisée par une matrice d’amortissement [C]."
+            },
+            {
+                "Type": "AmortissementStructurel",
+                "Description": "Amortissement interne dû aux propriétés des matériaux, généralement non linéaire."
+            }
+        ],
+        "RéponseAmortie": {
+            "Description": "Les systèmes amortis retournent à l'équilibre sans oscillation excessive. Le taux d’amortissement détermine si le mouvement est sous-amorti, critique ou sur-amorti."
+        }
+    },
+    "ApplicationsIndustrielles": [
+        {
+            "Nom": "Absorbeur De Masse Accordé",
+            "Description": "Système utilisé dans des structures pour réduire les vibrations, en s'accordant sur une fréquence de résonance spécifique pour absorber l'énergie vibratoire de cette fréquence."
+        },
+        {
+            "Nom": "Systèmes Antivibratoires Pour Machines",
+            "Description": "Utilisés pour minimiser les vibrations dans les machines industrielles afin de protéger les composants mécaniques et assurer un fonctionnement stable."
+        }
+    ],
+    "Références": [
+        {
+            "Titre": "Vibrations des systèmes mécaniques",
+            "Auteur": "Jean-Claude Pascal",
+            "Année": 2005
+        },
+        {
+            "Titre": "Introduction aux vibrations dans les systèmes continus",
+            "Auteur": "L. Champany",
+            "Année": 2005
+        },
+        {
+            "Titre": "Mechanical Vibrations Analysis",
+            "Auteur": "S. Timoshenko",
+            "Année": 1928
+        }
+    ]
+}
