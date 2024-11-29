@@ -2,7 +2,6 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, Trainer, TrainingA
 from datasets import load_dataset
 import torch
 
-print("Is CUDA available? ", torch.cuda.is_available())
 
 model_name = "EleutherAI/gpt-j-6B"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
