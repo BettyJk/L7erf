@@ -1,31 +1,55 @@
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+# conf.py for L7erf Bot Documentation
 
-# Required
-version: 2
+# -- Project information -----------------------------------------------------
 
-# Set the OS, Python version and other tools you might need
-build:
-  os: ubuntu-22.04
-  tools:
-    python: "3.10"
+project = 'L7erf Bot'
+author = 'Jouak Bouthayna et Hajar el Hadri'
+release = '15/12/2024'
+copyright = 'Copyright 2024, Jouak Bouthayna et Hajar el Hadri'
 
-# Build documentation in the "docs/" directory with Sphinx
-sphinx:
-  builder: html
-  configuration: conf.py
-  # You can configure Sphinx to use a different builder, for instance use the dirhtml builder for simpler URLs
-  # builder: "dirhtml"
-  # Fail on all warnings to avoid broken references
-  # fail_on_warning: true
+# -- General configuration ---------------------------------------------------
 
-# Optionally build your docs in additional formats such as PDF and ePub
-#formats:
- # - pdf
-  # - epub
+# Add any Sphinx extension module names here, as strings. They can be extensions
+# coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
+extensions = [
+    'sphinx.ext.autodoc',   # Automatic documentation generation from docstrings
+    'sphinx.ext.viewcode',  # Add links to source code
+    'sphinx.ext.napoleon',  # Support for Google-style docstrings
+    'sphinx_rtd_theme',     # For Read the Docs theme
+]
 
-# Optional but recommended, declare the Python requirements required
-# to build your documentation
-# See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
-python:
-  install:
-    - requirements: requirements.in
+# The master toctree document.
+master_doc = 'index'
+
+# -- Options for HTML output -------------------------------------------------
+
+# The theme to use for HTML and HTML Help pages.
+html_theme = 'sphinx_rtd_theme'
+
+# -- Options for LaTeX output -------------------------------------------------
+
+# For a simple document, this is probably unnecessary.
+latex_documents = [
+    ('index', 'L7erfBot.tex', 'L7erf Bot Documentation',
+     'Jouak Bouthayna et Hajar el Hadri', 'manual'),
+]
+
+# -- Options for manual page output ----------------------------------------
+
+man_pages = [
+    ('index', 'L7erfBot', 'L7erf Bot Documentation',
+     ['Jouak Bouthayna et Hajar el Hadri'], 1)
+]
+
+# -- Options for Texinfo output ---------------------------------------------
+
+texinfo_documents = [
+    ('index', 'L7erfBot', 'L7erf Bot Documentation',
+     'Jouak Bouthayna et Hajar el Hadri', 'L7erfBot', 'One line description of project.',
+     'Miscellaneous'),
+]
+
+# -- Extension configuration -------------------------------------------------
+
+# For example, to enable the Napoleon extension for Google-style docstrings:
+napoleon_google_docstring = True
