@@ -1,63 +1,129 @@
 Troubleshooting
 ==================
 
-### Common Problems and Solutions
-
-In this section, we address some of the most common issues encountered during the fine-tuning and deployment phases of the **L7erf Bot** project. For each problem, we provide the cause, solution, and additional notes on how to prevent or mitigate similar issues in the future.
+In this section, we address common issues encountered during the fine-tuning, deployment, and usage phases of the **L7erf Bot** project. Each issue includes its cause, solution, and additional tips to prevent similar challenges.
 
 ---
 
-#### **Problem 1: Overfitting During Fine-Tuning**
-- **Cause**: Overfitting occurs when the model is trained too extensively on a small, specialized dataset (in this case, the ENSAM-specific data). With an insufficient amount of diverse data and too many epochs, the model tends to memorize the training data rather than generalizing to new, unseen inputs.
+#### Problem 1: Overfitting During Fine-Tuning
+- **Cause**: The model is overly trained on a small, specialized dataset, leading to memorization rather than generalization.
   
 - **Solution**:
-  1. **Increased Dataset Diversity**: To combat overfitting, we added a more general-purpose dataset in addition to the ENSAM-specific data. This diverse data allows the model to learn broader patterns and improves its generalization capabilities.
-  2. **Reduced Epochs**: The fine-tuning process was shortened to 2 additional epochs after the ENSAM-specific dataset was introduced. Limiting the number of epochs prevents the model from overfitting to the small dataset and allows it to focus on the most essential patterns.
-  3. **Cross-Validation**: Implemented k-fold cross-validation during fine-tuning to evaluate the model's performance on different subsets of the training data. This ensures that the model performs well on various data splits, rather than just memorizing one set.
-  
+  1. **Diversify Dataset**: Add general-purpose data alongside ENSAM-specific content to broaden learning patterns.
+  2. **Reduce Epochs**: Limit fine-tuning to 2-3 additional epochs for small datasets.
+  3. **Use Cross-Validation**: Employ k-fold cross-validation to assess model performance across data splits.
+
   **Additional Notes**:
-  - **Overfitting Detection**: Overfitting can often be detected by comparing training and validation losses. If the training loss decreases significantly while the validation loss remains constant or increases, overfitting is occurring.
-  - **Early Stopping**: Using an early stopping mechanism can help halt training as soon as the validation loss starts to increase, thereby preventing overfitting.
+  - **Detection**: Compare training and validation losses. Overfitting is indicated when training loss decreases while validation loss increases.
+  - **Early Stopping**: Implement early stopping to halt training when validation performance degrades.
 
 ---
 
-#### **Problem 2: High Learning Rate Leading to Unstable Training**
-- **Cause**: The initial learning rate used during fine-tuning (1e-4) was too high for the BLOOM-560M model. A high learning rate causes the model's optimizer to take overly large steps in the weight update process, leading to erratic training behavior, where the loss function fluctuates or does not converge.
-  
+#### Problem 2: High Learning Rate Leading to Unstable Training
+- **Cause**: A high learning rate causes erratic weight updates, preventing model convergence.
+
 - **Solution**:
-  1. **Adjusted Learning Rate**: The learning rate was reduced to 5e-6, which is more suitable for fine-tuning large models like BLOOM-560M. A smaller learning rate ensures that the model's weights are updated more gradually and in a stable manner.
-  2. **Optimizer Adjustment**: We switched to the **AdamW** optimizer, which is known for its ability to provide stable updates for large transformer models like BLOOM-560M. AdamW also has weight decay that helps regularize the model and prevents overfitting.
-  3. **Learning Rate Scheduler**: We implemented a learning rate scheduler to gradually decrease the learning rate as the training progresses. This allows the model to start with a larger learning rate (to explore the parameter space) and then fine-tune with smaller steps as the model converges.
-  
+  1. **Reduce Learning Rate**: Use a smaller rate like 5e-6 for stable training with large models like BLOOM-560M.
+  2. **Use AdamW Optimizer**: Switch to AdamW for more stable weight updates and integrated weight decay.
+  3. **Apply Learning Rate Scheduler**: Gradually decrease the learning rate as training progresses.
+
   **Additional Notes**:
-  - **Gradient Clipping**: In some cases, gradient clipping may also be applied to prevent gradient explosions, especially when training large models with a high learning rate.
-  - **Learning Rate Search**: To avoid choosing an ineffective learning rate, it's often helpful to perform a learning rate range test. This involves gradually increasing the learning rate during the initial training stages to identify the optimal value.
+  - **Gradient Clipping**: Prevent gradient explosions by clipping gradients.
+  - **Learning Rate Range Test**: Test different rates to identify the optimal value.
 
 ---
 
-#### **Problem 3: Slow Inference Times on Local Machine**
-- **Cause**: Slow inference times may occur when deploying **L7erf Bot** on hardware with limited computational power, such as a local machine without GPU acceleration. This is especially common when running large models like BLOOM-560M, which require significant resources for both inference and model loading.
-  
+#### Problem 3: Slow Inference Times on Local Machine
+- **Cause**: Hardware limitations, such as lack of GPU acceleration, hinder model performance.
+
 - **Solution**:
-  1. **Model Quantization**: We implemented **model quantization** to reduce the model size by converting the weights from 32-bit floating point to lower precision (e.g., 8-bit). This reduces both the memory footprint and the time required for model inference without significantly sacrificing accuracy.
-  2. **Hardware Optimization**: Optimized the deployment environment to make better use of available hardware. This includes using multiple CPU cores for parallel processing or leveraging available GPUs for faster computations.
-  3. **Model Caching**: For repeated queries, we implemented a **model caching mechanism** that stores previous results, so the bot can return responses instantly without recomputing the results for each request.
-  
+  1. **Quantize the Model**: Reduce the model size by converting weights to lower precision (e.g., 8-bit).
+  2. **Leverage Hardware**: Optimize for multi-core CPUs or GPUs.
+  3. **Implement Model Caching**: Cache previous responses to avoid redundant computations.
+
   **Additional Notes**:
-  - **Batching Inference**: In scenarios where multiple users are interacting with the bot, **batching inference requests** can improve performance by processing multiple requests in parallel, reducing latency.
-  - **Asynchronous Inference**: Consider using asynchronous calls to handle multiple user requests concurrently without blocking.
+  - **Batch Inference**: Process multiple queries simultaneously for better efficiency.
+  - **Asynchronous Requests**: Use asynchronous processing to handle user interactions without blocking.
 
 ---
 
-#### **Problem 4: OCR Extraction Inaccuracy**
-- **Cause**: The Optical Character Recognition (OCR) tool used for extracting text from scanned PDFs or images occasionally produces inaccurate results. This may be due to poor quality of scanned documents, noise in images, or the presence of unusual fonts.
-  
-- **Solution**:
-  1. **Image Preprocessing**: To improve OCR accuracy, we applied image preprocessing techniques such as **image denoising**, **thresholding**, and **deskewing** to make the scanned text clearer before OCR extraction.
-  2. **Switching OCR Tools**: We replaced the default OCR library with **Tesseract 5.0** or **Google Vision API**, which offer improved recognition accuracy, especially on noisy or poorly scanned documents.
-  3. **Manual Review**: We integrated a manual review system, allowing users to flag OCR errors for manual correction. This feature ensures that critical documents are processed with high precision.
-  
-  **Additional Notes**:
-  - **OCR Error Detection**: Use OCR confidence scores to automatically detect low-quality results. If the confidence score is below a certain threshold, the document can be flagged for review or reprocessing.
-  - **Training Custom OCR Models**: In cases where Tesseract or other OCR tools do not provide satisfactory results, you may consider training a custom OCR model tailored to your specific documents or font types.
+#### Problem 4: OCR Extraction Inaccuracy
+- **Cause**: Low-quality scans, noise, or unusual fonts affect OCR accuracy.
 
+- **Solution**:
+  1. **Preprocess Images**: Enhance clarity with denoising, thresholding, and deskewing techniques.
+  2. **Switch to Better OCR Tools**: Use advanced tools like Tesseract 5.0 or Google Vision API.
+  3. **Enable Manual Review**: Allow users to flag errors for manual correction.
+
+  **Additional Notes**:
+  - **Confidence Scores**: Flag low-confidence OCR results for reprocessing.
+  - **Custom OCR Models**: Train specialized OCR models for domain-specific documents.
+
+---
+
+#### Problem 5: Streamlit Not Starting
+- **Cause**: Missing or improperly installed dependencies.
+
+- **Solution**:
+  1. **Verify Installation**: Check if Streamlit is installed:
+     .. code-block:: bash
+
+        pip show streamlit
+     
+     If missing, install it:
+     .. code-block:: bash
+
+        pip install streamlit
+  2. **Reinstall Dependencies**: Reinstall all dependencies from `requirements.txt`:
+     .. code-block:: bash
+
+        pip install --upgrade -r requirements.txt
+
+  **Additional Notes**:
+  - **Python Version**: Ensure compatibility between Streamlit and your Python version.
+  - **Virtual Environment**: Run the application in an isolated environment to avoid conflicts.
+
+---
+
+#### Problem 6: Issues with Environment Variables
+- **Cause**: Misconfigured or missing `.env` file.
+
+- **Solution**:
+  1. **Check .env File**: Ensure the file is correctly configured and matches the template provided in `.env.example`.
+  2. **Verify Variables**: Use a command-line tool to confirm that variables are being loaded:
+     .. code-block:: bash
+
+        printenv | grep YOUR_VARIABLE_NAME
+
+  **Additional Notes**:
+  - **dotenv Library**: Confirm the dotenv library is properly installed and imported.
+  - **Path Check**: Ensure `.env` is in the same directory as the application.
+
+---
+
+#### Problem 7: Model Fails to Load
+- **Cause**: Large models like BLOOM-560M may not load due to insufficient memory.
+
+- **Solution**:
+  1. **Increase Memory**: Allocate more RAM or switch to a machine with higher memory.
+  2. **Load in FP16**: Load the model in 16-bit precision (FP16) to reduce memory requirements:
+     .. code-block:: python
+
+        model = model.half()
+  3. **Load on GPU**: If available, offload the model to GPU for faster loading and inference.
+
+  **Additional Notes**:
+  - **Lazy Loading**: Load specific parts of the model on-demand rather than the entire model at once.
+  - **Sharded Models**: Use sharded models to split the loading process across multiple devices.
+
+---
+
+Next Steps
+----------
+
+If your issue persists, consider the following:
+- **Community Support**: Post questions on the project's GitHub repository.
+- **Logs**: Check error logs for detailed information about the issue.
+- **Documentation**: Refer to the relevant sections of this guide for additional insights.
+
+For complex challenges, reach out to the maintainers via the contact information on the GitHub repository.
