@@ -5,9 +5,11 @@ In this section, we address common issues encountered during the fine-tuning, de
 
 ---
 
-#### Problem 1: Overfitting During Fine-Tuning
+Problem 1: Overfitting During Fine-Tuning
+-----------------------------------------
+
 - **Cause**: The model is overly trained on a small, specialized dataset, leading to memorization rather than generalization.
-  
+
 - **Solution**:
   1. **Diversify Dataset**: Add general-purpose data alongside ENSAM-specific content to broaden learning patterns.
   2. **Reduce Epochs**: Limit fine-tuning to 2-3 additional epochs for small datasets.
@@ -19,7 +21,9 @@ In this section, we address common issues encountered during the fine-tuning, de
 
 ---
 
-#### Problem 2: High Learning Rate Leading to Unstable Training
+Problem 2: High Learning Rate Leading to Unstable Training
+---------------------------------------------------------
+
 - **Cause**: A high learning rate causes erratic weight updates, preventing model convergence.
 
 - **Solution**:
@@ -33,7 +37,9 @@ In this section, we address common issues encountered during the fine-tuning, de
 
 ---
 
-#### Problem 3: Slow Inference Times on Local Machine
+Problem 3: Slow Inference Times on Local Machine
+------------------------------------------------
+
 - **Cause**: Hardware limitations, such as lack of GPU acceleration, hinder model performance.
 
 - **Solution**:
@@ -47,7 +53,9 @@ In this section, we address common issues encountered during the fine-tuning, de
 
 ---
 
-#### Problem 4: OCR Extraction Inaccuracy
+Problem 4: OCR Extraction Inaccuracy
+------------------------------------
+
 - **Cause**: Low-quality scans, noise, or unusual fonts affect OCR accuracy.
 
 - **Solution**:
@@ -61,7 +69,9 @@ In this section, we address common issues encountered during the fine-tuning, de
 
 ---
 
-#### Problem 5: Streamlit Not Starting
+Problem 5: Streamlit Not Starting
+----------------------------------
+
 - **Cause**: Missing or improperly installed dependencies.
 
 - **Solution**:
@@ -74,6 +84,7 @@ In this section, we address common issues encountered during the fine-tuning, de
      .. code-block:: bash
 
         pip install streamlit
+
   2. **Reinstall Dependencies**: Reinstall all dependencies from `requirements.txt`:
      .. code-block:: bash
 
@@ -85,7 +96,9 @@ In this section, we address common issues encountered during the fine-tuning, de
 
 ---
 
-#### Problem 6: Issues with Environment Variables
+Problem 6: Issues with Environment Variables
+--------------------------------------------
+
 - **Cause**: Misconfigured or missing `.env` file.
 
 - **Solution**:
@@ -101,7 +114,9 @@ In this section, we address common issues encountered during the fine-tuning, de
 
 ---
 
-#### Problem 7: Model Fails to Load
+Problem 7: Model Fails to Load
+-------------------------------
+
 - **Cause**: Large models like BLOOM-560M may not load due to insufficient memory.
 
 - **Solution**:
@@ -110,6 +125,7 @@ In this section, we address common issues encountered during the fine-tuning, de
      .. code-block:: python
 
         model = model.half()
+
   3. **Load on GPU**: If available, offload the model to GPU for faster loading and inference.
 
   **Additional Notes**:
