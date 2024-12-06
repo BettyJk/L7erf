@@ -1,28 +1,31 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+# Required
+version: 2
 
-project = 'l7erf Bot'
-copyright = '2024, Bouthayna Jouak et Hajar el Hadri'
-author = 'Bouthayna Jouak et Hajar el Hadri'
-release = '15/12/2024'
+# Set the OS, Python version and other tools you might need
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.10"
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+# Build documentation in the "docs/" directory with Sphinx
+sphinx:
+  builder: html
+  configuration: conf.py
+  # You can configure Sphinx to use a different builder, for instance use the dirhtml builder for simpler URLs
+  # builder: "dirhtml"
+  # Fail on all warnings to avoid broken references
+  # fail_on_warning: true
 
-extensions = []
+# Optionally build your docs in additional formats such as PDF and ePub
+#formats:
+ # - pdf
+  # - epub
 
-templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
-
-
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
-html_theme = 'alabaster'
-html_static_path = ['_static']
+# Optional but recommended, declare the Python requirements required
+# to build your documentation
+# See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
+python:
+  install:
+    - requirements: requirements.txt
