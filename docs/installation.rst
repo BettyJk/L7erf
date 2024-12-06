@@ -1,86 +1,147 @@
 Installation
 ============
 
-Follow these steps to install and run the **L7erf Bot** application:
+Follow these steps to install and run the **L7erf Bot** application on your local machine.
 
 ---
 
-### 1. Clone the Repository
+1. Clone the Repository
+------------------------
 
-Begin by cloning the official **L7erf Bot** repository from GitHub. Open a terminal and execute the following command:
+To begin, clone the official **L7erf Bot** repository from GitHub. Open a terminal and execute the following command:
 
 .. code-block:: bash
 
    git clone https://github.com/BettyJk/L7erf.git
 
-This will create a local copy of the repository on your machine.
-
----
-
-### 2. Install Dependencies
-
-Once you have cloned the repository, navigate to the project directory:
+This command creates a local copy of the repository on your machine. Once cloned, navigate to the project directory:
 
 .. code-block:: bash
 
    cd L7erf
 
-Next, install the necessary dependencies. The project relies on various Python libraries, which are listed in the `requirements.txt` file. Use the following command to install them:
+---
+
+2. Install Dependencies
+------------------------
+
+The project relies on several Python libraries listed in the `requirements.txt` file. To install these dependencies, use the following command:
 
 .. code-block:: bash
 
    pip install -r requirements.txt
 
-This will install all required packages, including those for machine learning, data processing, and user interface components.
+This ensures all required packages, including libraries for machine learning, data processing, and user interface development, are installed.
+
+**Tip**: It’s recommended to use a virtual environment to avoid conflicts with existing Python packages. To set up a virtual environment, run:
+
+.. code-block:: bash
+
+   python -m venv venv
+   source venv/bin/activate  # On macOS/Linux
+   venv\Scripts\activate     # On Windows
+
+Then proceed with the dependency installation.
 
 ---
 
-### 3. Set Up Environment Variables (Optional)
+3. Set Up Environment Variables
+-------------------------------
 
-Some of the components in **L7erf Bot**, such as the NLP models, may require environment variables or configuration files for optimal performance. Check the `.env.example` file for variables that might need to be configured (e.g., API keys or model paths).
+Certain features of **L7erf Bot**, such as NLP models or API integrations, may require environment variables. The repository includes a `.env.example` file with placeholders for necessary configurations like API keys and file paths.
 
-If required, create a `.env` file in the root directory and fill in the necessary details.
+**Steps:**
+
+1. Copy the `.env.example` file and rename it to `.env`:
+
+   .. code-block:: bash
+
+      cp .env.example .env
+
+2. Open the `.env` file and fill in the required details, such as:
+   - API keys for external services.
+   - Paths to pre-trained NLP models if applicable.
+
+3. Save the file and ensure the application can access these variables.
 
 ---
 
-### 4. Run the Application
+4. Run the Application
+----------------------
 
-Now that the repository is cloned and dependencies are installed, you can start the application. To run the **L7erf Bot** interface with Streamlit, execute the following command:
+With dependencies installed and environment variables set, you’re ready to launch the **L7erf Bot**. Use the following command to start the Streamlit application:
 
 .. code-block:: bash
 
    streamlit run app.py
 
-Streamlit will launch a local web server and display the application in your default web browser. The bot interface should now be accessible at `http://localhost:8501`.
+This command launches a local web server, and the application interface will open in your default web browser. You can access the bot at:
+
+   http://localhost:8501
 
 ---
 
-### 5. Accessing the Application
+5. Using L7erf Bot
+------------------
 
-Once the Streamlit server is up and running, you can interact with the **L7erf Bot**. The application includes various functionalities, including summarization, note organization, and more, depending on the modules you want to use.
+Once the application is running, you can explore its various features:
 
-- **Summarization**: The bot will process and summarize PDF documents.
-- **ENSAM Information**: Interactive chatbot for exploring ENSAM Meknès academic programs and student life.
-- **Course Q&A**: A specialized model fine-tuned on ENSAM-related content to help answer academic questions.
+- **📄 Document Summarization**: Upload PDF files for automatic summarization.
+- **🎓 ENSAM Information**: Interact with the bot to learn about ENSAM Meknès programs, schedules, and more.
+- **🤖 Academic Q&A**: Use the chatbot to get answers to academic and course-related questions.
 
----
-
-### Troubleshooting
-
-If you encounter any issues during installation or running the application, refer to the **Troubleshooting** section of the documentation for common problems and solutions.
-
-- **Problem 1**: Streamlit not starting – Make sure `streamlit` is installed correctly by running `pip show streamlit`.
-- **Problem 2**: Missing dependencies – Ensure all dependencies from `requirements.txt` are successfully installed. Run `pip install --upgrade -r requirements.txt` to resolve issues.
+The intuitive interface ensures you can quickly access and utilize these features.
 
 ---
 
-### Additional Configuration
+6. Troubleshooting
+-------------------
 
-If you plan to run the application in a production environment, consider the following additional configurations:
+Encountered an issue? Below are solutions to common problems:
 
-- **Deployment**: You may deploy the application on cloud platforms such as AWS, Google Cloud, or Heroku. Refer to the deployment documentation for specific setup instructions.
-- **Model Fine-Tuning**: If you intend to fine-tune the models further, refer to the fine-tuning section in the documentation for guidance on configuring your training environment.
+- **Streamlit not starting**: Ensure `streamlit` is correctly installed. Check its presence with:
+
+   .. code-block:: bash
+
+      pip show streamlit
+
+   If not installed, run:
+
+   .. code-block:: bash
+
+      pip install streamlit
+
+- **Dependency errors**: Double-check the installation of packages. Upgrade outdated or missing dependencies with:
+
+   .. code-block:: bash
+
+      pip install --upgrade -r requirements.txt
+
+- **Environment variable issues**: Verify that the `.env` file is properly configured and matches the required format.
+
+For detailed solutions, consult the **Troubleshooting** section of this documentation.
 
 ---
 
-By following these steps, you should be able to successfully set up and run the **L7erf Bot** on your machine. For additional support, please check the FAQ section or open an issue in the GitHub repository.
+7. Additional Configuration (Optional)
+--------------------------------------
+
+If deploying in a production environment, consider the following enhancements:
+
+- **Cloud Deployment**:
+  Deploy the application to platforms such as AWS, Google Cloud, or Heroku. This enables broader accessibility and scalability.
+
+- **Model Fine-Tuning**:
+  To customize the bot’s responses further, follow the fine-tuning instructions in the **Customization** section of the documentation. This may require GPU access for training.
+
+- **Performance Optimization**:
+  Optimize the application's performance by caching frequently used responses or preloading commonly accessed models.
+
+---
+
+Next Steps
+----------
+
+Congratulations! You’ve successfully installed and launched the **L7erf Bot**. Dive into the application to explore its features, or proceed to the **Usage** section for detailed instructions on leveraging the bot’s capabilities.
+
+For support or feedback, consult the FAQ section or submit an issue on the `GitHub repository <https://github.com/BettyJk/L7erf>`_.
