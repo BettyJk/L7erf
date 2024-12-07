@@ -1,10 +1,17 @@
-Welcome to L7erf Bot's Documentation!
-======================================
+.. image:: unnamed.png
+   :alt: ENSAM Logo
+   :width: 200px
+   :align: right
 
 .. image:: logoL7erf.png
    :alt: L7erf Bot Logo
    :width: 200px
-   :align: center
+   :align: left
+
+
+Welcome to L7erf Bot's Documentation!
+======================================
+
 
 Welcome to the official documentation for **L7erf Bot**, your intelligent AI assistant designed to simplify learning, automate complex tasks, and provide unmatched support. Whether you're a student seeking clarity, an educator streamlining your workload, or a researcher diving into data, **L7erf Bot** is your reliable partner.
 
@@ -13,10 +20,6 @@ Welcome to the official documentation for **L7erf Bot**, your intelligent AI ass
 Why L7erf Bot?
 ==============
 
-.. image:: unnamed.png
-   :alt: ENSAM Logo
-   :width: 200px
-   :align: center
 
 In today’s fast-paced world, managing information efficiently is more crucial than ever. **L7erf Bot** is built to address this need by combining cutting-edge technology with user-focused design.  
 
@@ -39,15 +42,16 @@ Here's why **L7erf Bot** stands out:
 Core Features
 =============
 
-.. image:: summarisation.png
-   :alt: Summarisation Bot
-   :width: 400px
-   :align: center
 
 - **📄 Advanced PDF Summarization**  
   Struggling with lengthy documents? L7erf Bot processes and summarizes PDFs efficiently, offering:  
   - Key highlights and insights extracted from dense academic or professional materials.  
   - Support for unstructured text and multiple languages, making it universally useful.  
+
+.. image:: summarisation.png
+   :alt: Summarisation Bot
+   :width: 400px
+   :align: center
 
 .. image:: summ.png
    :alt: Summarisation Bot - Deployment
