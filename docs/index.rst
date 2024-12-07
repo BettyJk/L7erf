@@ -85,12 +85,12 @@ Behind the Bot
 ==============
 
 **✨ Developed By:** Jouak Bouthayna & Hajar El Hadri  
-.. image:: images/bouthayna.png
+.. image:: images/bouthayna.jpg
    :alt: Bouthayna Jouak
    :width: 150px
    :align: left
 
-.. image:: images/hajar.png
+.. image:: images/hajar.jpg
    :alt: Hajar El Hadri
    :width: 150px
    :align: right
