@@ -29,17 +29,18 @@ Here's why **L7erf Bot** stands out:
 Core Features
 =============
 
-### 📄 Advanced PDF Summarization  
+
+- **📄 Advanced PDF Summarization**
 Struggling with lengthy documents? L7erf Bot processes and summarizes PDFs efficiently, offering:  
 - Key highlights and insights extracted from dense academic or professional materials.  
 - Support for unstructured text and multiple languages, making it universally useful.  
 
-### 🎓 ENSAM Meknès Guide  
+- **🎓 ENSAM Meknès Guide** 
 A specialized resource for ENSAM Meknès students, covering:  
 - Academic programs, campus life, and extracurricular activities.  
 - Administrative queries like registration, schedules, and contacts—all in one place.  
 
-### 🤖 Intelligent Chat Features  
+- **🤖 Intelligent Chat Features** 
 Ask questions and receive clear, accurate, and concise responses. The chatbot is fine-tuned for:  
 - Academic topics, including engineering, AI, and more.  
 - General knowledge and problem-solving tasks.  
