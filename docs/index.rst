@@ -48,15 +48,21 @@ Core Features
   - Key highlights and insights extracted from dense academic or professional materials.  
   - Support for unstructured text and multiple languages, making it universally useful.  
 
+
+
 .. image:: summarisation.png
    :alt: Summarisation Bot
    :width: 400px
    :align: center
 
+
+
 .. image:: summ.png
    :alt: Summarisation Bot - Deployment
    :width: 400px
    :align: center
+
+
 
 - **🎓 ENSAM Meknès Guide**  
   A specialized resource for ENSAM Meknès students, covering:  
@@ -79,6 +85,15 @@ Behind the Bot
 ==============
 
 **✨ Developed By:** Jouak Bouthayna & Hajar El Hadri  
+.. image:: images/bouthayna.png
+   :alt: Bouthayna Jouak
+   :width: 150px
+   :align: left
+
+.. image:: images/hajar.png
+   :alt: Hajar El Hadri
+   :width: 150px
+   :align: right
 **📅 Release Date:** December 15, 2024  
 **🏆 Our Mission:** To revolutionize access to knowledge through the power of artificial intelligence.  
 
