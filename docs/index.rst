@@ -88,7 +88,7 @@ Behind the Bot
 
 .. image:: bouthayna.jpg
    :alt: Hajar El Hadri
-   :width: 150px
+   :width: 200px
    :align: left
 
 .. image:: hajar.jpg
