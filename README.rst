@@ -1,28 +1,38 @@
-# L7erf: A Streamlit-Based ENSAM Multi-Feature Chatbot
-====================================================
+# ENSAM Chatbot
 
-**L7erf** is a multi-feature chatbot built with [Streamlit](https://streamlit.io/) and [LangChain](https://www.langchain.com/). It provides the following key functionalities to assist users:
-
-- **Text Summarization**: A chatbot that summarizes any given text.
-- **ENSAM Course Information**: A chatbot for providing detailed information about ENSAM courses and programs.
-- **General ENSAM FAQs**: A chatbot that answers general questions about ENSAM (École Nationale Supérieure d'Arts et Métiers).
+The **ENSAM Chatbot** is a multi-functional chatbot application designed for students of ENSAM Meknès. It integrates various features such as a PDF summarizer, general information about ENSAM, and a course-related chatbot, all within a sleek and interactive user interface powered by **Streamlit**.
 
 ## Features
---------
 
-- **Text Summarization**: Users can input any piece of text, and the chatbot will return a concise summary. This is particularly useful for long articles, reports, or research papers.
-  
-- **ENSAM Course Chatbot**: This feature provides detailed insights into the various courses and programs offered by ENSAM. Users can query information such as course outlines, prerequisites, professors, schedules, and more.
-  
-- **General ENSAM Information**: Users can ask general questions about ENSAM's policies, campus life, admissions process, and other general inquiries. This is designed to help potential students and current ones with any basic information they need.
+1. **Summarization Bot**:
+   - Upload PDFs and get automatic summarization in both **English** and **French**.
+   - Key features include text extraction, OCR from images in PDFs, and structured note generation.
 
-## Installation
-------------
+2. **General Info Bot**:
+   - Provides detailed information about ENSAM Meknès, including academic tracks and extracurricular activities.
+   - Uses **LangChain** with **Groq API** for real-time responses based on a knowledge base.
 
-Follow these steps to set up **L7erf** on your local machine.
+3. **Courses Bot**:
+   - Responds to course-related queries using a **fine-tuned GPT model**.
+   - Queries can be posed in French, with responses generated from the model's specialized training.
 
-### Prerequisites
-Ensure you have Python 3.8 or later installed. You can check your Python version by running the following command:
+## Requirements
+
+To run the application, ensure you have the following installed:
+
+- Python 3.7+
+- Streamlit
+- Transformers
+- LangChain
+- PyMuPDF
+- pdfplumber
+- pytesseract
+- pdf2image
+- keybert
+- Groq API (for General Info Bot)
+- Other dependencies: `fitz`, `langdetect`, `Pillow`, `tempfile`
+
+You can install the required libraries using `pip`:
 
 ```bash
-python --version
+pip install streamlit transformers langchain langchain_groq pytesseract pdfplumber pdf2image keybert langdetect pillow
