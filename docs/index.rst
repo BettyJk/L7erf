@@ -8,6 +8,10 @@
    :width: 200px
    :align: left
 
+.. image:: docs/image_2024-12-24_164802934.png
+   :alt: L7erf Bot Logo
+   :width: 200px
+   :align: center
 
 Welcome to L7erf Bot's Documentation!
 ======================================
