@@ -119,25 +119,8 @@ Encountered an issue? Below are solutions to common problems:
 
 - **Environment variable issues**: Verify that the `.env` file is properly configured and matches the required format.
 
-For detailed solutions, consult the **Troubleshooting** section of this documentation.
 
----
 
-7. Additional Configuration (Optional)
---------------------------------------
-
-If deploying in a production environment, consider the following enhancements:
-
-- **Cloud Deployment**:
-  Deploy the application to platforms such as AWS, Google Cloud, or Heroku. This enables broader accessibility and scalability.
-
-- **Model Fine-Tuning**:
-  To customize the bot’s responses further, follow the fine-tuning instructions in the **Customization** section of the documentation. This may require GPU access for training.
-
-- **Performance Optimization**:
-  Optimize the application's performance by caching frequently used responses or preloading commonly accessed models.
-
----
 
 Next Steps
 ----------
