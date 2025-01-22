@@ -138,12 +138,13 @@ To better understand how to use the **L7erf Bot**, refer to the following demons
 .. raw:: html
 
    <video width="640" height="360" controls>
-       <source src="docs/howtouse.mp4" type="video/mp4">
+       <source src="howtouse.mp4 type="video/mp4">
        Your browser does not support the video tag.
    </video>
 
 The video provides a step-by-step explanation of interacting with the bot and utilizing its features.
 
+---
 
 Next Steps
 ----------
