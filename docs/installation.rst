@@ -18,7 +18,7 @@ This command creates a local copy of the repository on your machine. Once cloned
 
 .. code-block:: bash
 
-   cd L7erf
+   cd chatbotensam
 
 ---
 
@@ -31,9 +31,7 @@ The project relies on several Python libraries listed in the `requirements.txt` 
 
    pip install -r requirements.txt
 
-This ensures all required packages, including libraries for machine learning, data processing, and user interface development, are installed.
-
-**Tip**: It’s recommended to use a virtual environment to avoid conflicts with existing Python packages. To set up a virtual environment, run:
+**Tip**: It is recommended to use a virtual environment to avoid conflicts with existing Python packages. To set up a virtual environment, run:
 
 .. code-block:: bash
 
@@ -73,7 +71,7 @@ With dependencies installed and environment variables set, you’re ready to lau
 
 .. code-block:: bash
 
-   streamlit run app.py
+   streamlit run chatbot.py
 
 This command launches a local web server, and the application interface will open in your default web browser. You can access the bot at:
 
@@ -94,7 +92,18 @@ The intuitive interface ensures you can quickly access and utilize these feature
 
 ---
 
-6. Troubleshooting
+6. Access the Deployed Application
+-----------------------------------
+
+The **L7erf Bot** is also deployed and accessible via the following link:
+
+   `Deployed App <https://chatbotensam-bettyhajar.streamlit.app>`_
+
+**Note**: The deployed app may experience issues due to version conflicts. The team is actively working to resolve these problems for a smoother user experience.
+
+---
+
+7. Troubleshooting
 -------------------
 
 Encountered an issue? Below are solutions to common problems:
@@ -119,12 +128,11 @@ Encountered an issue? Below are solutions to common problems:
 
 - **Environment variable issues**: Verify that the `.env` file is properly configured and matches the required format.
 
-
-
+---
 
 Next Steps
 ----------
 
 Congratulations! You’ve successfully installed and launched the **L7erf Bot**. Dive into the application to explore its features, or proceed to the **Usage** section for detailed instructions on leveraging the bot’s capabilities.
 
-For support or feedback, consult the FAQ section or submit an issue on the `GitHub repository <https://github.com/BettyJk/L7erf>`_.
+For support or feedback, consult the FAQ section or submit an issue on the `GitHub repository <https://github.com/BettyJk/chatbotensam>`_.
