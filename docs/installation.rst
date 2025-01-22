@@ -12,7 +12,7 @@ To begin, clone the official **L7erf Bot** repository from GitHub. Open a termin
 
 .. code-block:: bash
 
-   git clone https://github.com/BettyJk/L7erf.git
+   git clone https://github.com/BettyJk/chatbotensam
 
 This command creates a local copy of the repository on your machine. Once cloned, navigate to the project directory:
 
