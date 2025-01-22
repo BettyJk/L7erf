@@ -135,7 +135,7 @@ Encountered an issue? Below are solutions to common problems:
 
 To better understand how to use the **L7erf Bot**, refer to the following demonstration video:
 
-`Click here to watch or download the video <howtouse.mp4>`_
+`Click here to watch or download the video <https://github.com/BettyJk/L7erf/raw/refs/heads/main/docs/howtouse.mp4>`_
 
 The video provides a step-by-step explanation of interacting with the bot and utilizing its features.
 
